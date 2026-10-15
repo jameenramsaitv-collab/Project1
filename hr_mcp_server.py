@@ -14,12 +14,15 @@ from datetime import datetime
 from pathlib import Path
 from dotenv import load_dotenv
 from mcp.server.fastmcp import FastMCP
+from leave_management import register_leave_tools
 
 # Load .env variables
 load_dotenv()
 
 # Initialize FastMCP Server
 mcp = FastMCP("HRSupportServer")
+
+register_leave_tools(mcp)
 
 BASE_DIR = Path(__file__).parent.resolve()
 POLICIES_DIR = BASE_DIR / "policies"
